@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gym-application
+  labels:
+    app: gym-application
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gym-application
+  template:
+    metadata:
+      labels:
+        app: gym-application
+    spec:
+      containers:
+        - name: gym-application
+          image: enzodprado/gym-application:latest
