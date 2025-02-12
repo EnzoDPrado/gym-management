@@ -5,7 +5,7 @@ metadata:
   labels:
     app: gym-application
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: gym-application
@@ -16,4 +16,9 @@ spec:
     spec:
       containers:
         - name: gym-application
-          image: enzodprado/gym-application:latest
+          image: enzodprado/gym-application:v1 
+          env:
+            - name: ADMIN_NAME
+              value: "Enzo"
+            - name: ADMIN_LAST_NAME
+              value: "D. Prado"

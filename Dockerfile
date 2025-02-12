@@ -2,12 +2,14 @@ FROM node:18
 
 WORKDIR /app
 
-COPY package.json package-lock.json* ./
+COPY package.json yarn.lock ./
 
-RUN yarn
+RUN yarn install 
+
+RUN yarn global add ts-node typescript
 
 COPY . .
 
 EXPOSE 3000
 
-CMD ["yarn start"]
+CMD ["yarn", "start"] 
