@@ -17,8 +17,17 @@ spec:
       containers:
         - name: gym-application
           image: enzodprado/gym-application:v10
-          env:
-            - name: ADMIN_NAME
-              value: "Enzo"
-            - name: ADMIN_LAST_NAME
-              value: "D. Prado"
+          envFrom:
+            - configMapRef:
+                name: gym-application-env
+          # env:
+          #   - name: ADMIN_NAME
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: gym-application-env
+          #         key: ADMIN_NAME
+          #   - name: ADMIN_LAST_NAME
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: gym-application-env
+          #         key: ADMIN_LAST_NAME

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gym-application-env
+data:
+  ADMIN_NAME: "Enzo"
+  ADMIN_LAST_NAME: "Diógenes do Prado"
