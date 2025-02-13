@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: gym-application
-          image: enzodprado/gym-application:v1 
+          image: enzodprado/gym-application:v10
           env:
             - name: ADMIN_NAME
               value: "Enzo"
