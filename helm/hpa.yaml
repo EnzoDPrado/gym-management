@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: gym-application-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    name: gym-application
+    kind: Deployment
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 30

@@ -17,17 +17,13 @@ spec:
       containers:
         - name: gym-application
           image: enzodprado/gym-application:v10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
           envFrom:
             - configMapRef:
                 name: gym-application-env
-          # env:
-          #   - name: ADMIN_NAME
-          #     valueFrom:
-          #       configMapKeyRef:
-          #         name: gym-application-env
-          #         key: ADMIN_NAME
-          #   - name: ADMIN_LAST_NAME
-          #     valueFrom:
-          #       configMapKeyRef:
-          #         name: gym-application-env
-          #         key: ADMIN_LAST_NAME
