@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
 export interface Controller {
-  handler(params: Controller.params): Controller.result;
+  handler({ req, res }: Controller.params): Controller.result;
 }
 
 export namespace Controller {
