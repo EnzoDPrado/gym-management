@@ -1,6 +1,5 @@
-import { Knex } from 'knex';
-import { CreateUserRepository } from '../../../data/protocols';
-import { GetUsersRepository } from '../../../data/protocols/user/get-users-repository';
+import { CreateUserRepository } from '../../../main/data/protocols';
+import { GetUsersRepository } from '../../../main/data/protocols/user/get-users-repository';
 import { Repository } from '../repository';
 
 export class UserRepository

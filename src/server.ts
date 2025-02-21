@@ -1,4 +1,4 @@
-import { expressServerFactory } from './config/express/express-server-factory';
+import { expressServerFactory } from './infra/config/express/express-server-factory';
 import { ENV } from './util/environment';
 
 const { SERVER } = ENV;

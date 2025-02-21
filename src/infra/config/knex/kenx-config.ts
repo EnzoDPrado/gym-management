@@ -1,5 +1,5 @@
 import { Knex } from 'knex';
-import { ENV } from '../../util/environment';
+import { ENV } from '../../../util/environment';
 
 const { DATABASE } = ENV;
 
