@@ -1,16 +1,10 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import userRoutes from './infra/routes/user-routes';
+import { expressServerFactory } from './config/express/express-server-factory';
+import { ENV } from './util/environment';
 
-dotenv.config();
+const { SERVER } = ENV;
 
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(cors());
-app.use(express.json());
-app.use('/api', userRoutes);
+const PORT = SERVER.PORT;
+const app = expressServerFactory();
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);

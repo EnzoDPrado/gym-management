@@ -1,7 +1,7 @@
-import { UserController } from "../../../infra/controller"
-import { UserRepository } from "../../../infra/db/sql/gym"
-import { makeDbCreateUser } from "../../usecases/user/make-db-create-user"
+import { UserController } from '../../../controller';
+import { makeDbGetUsers } from '../../usecases';
+import { makeDbCreateUser } from '../../usecases/user/make-db-create-user';
 
 export const makeUserController = () => {
-  return new UserController(makeDbCreateUser(), new UserRepository())
-}
+  return new UserController(makeDbCreateUser(), makeDbGetUsers());
+};
