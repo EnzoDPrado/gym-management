@@ -1,11 +1,20 @@
-import { CreateUserRepository } from '../../../main/data/protocols';
-import { GetUsersRepository } from '../../../main/data/protocols/user/get-users-repository';
+import {
+  CreateUserRepository,
+  DeleteUserByIdRepository,
+  GetUsersRepository,
+} from '../../../main/data/protocols';
 import { Repository } from '../repository';
 
 export class UserRepository
   extends Repository
-  implements CreateUserRepository, GetUsersRepository
+  implements CreateUserRepository, GetUsersRepository, DeleteUserByIdRepository
 {
+  async deleteById({
+    userId,
+  }: DeleteUserByIdRepository.Params): DeleteUserByIdRepository.Result {
+    await this.knex('client.tb_user').delete().where('user_id', userId);
+  }
+
   async getAll(): GetUsersRepository.Result {
     const record = await this.knex('client.tb_user').select('*');
 
