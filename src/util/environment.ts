@@ -15,4 +15,8 @@ export const ENV = {
     PORT: process.env.PORT || 3001,
     BASE_URL: process.env.BASE_URL || '',
   },
+
+  JWT:{
+    SECRET: process.env.JWT_SECRET || ''
+  }
 };

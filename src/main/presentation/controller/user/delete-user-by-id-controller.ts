@@ -1,4 +1,4 @@
-import { DeleteUserById } from '../../domain/usecases';
+import { DeleteUserById } from '../../../domain/usecases';
 import { Controller } from '../controller';
 
 export class DeleteUserByIdController implements Controller {

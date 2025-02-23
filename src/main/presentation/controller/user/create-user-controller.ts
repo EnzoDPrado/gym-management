@@ -1,4 +1,4 @@
-import { CreateUser } from '../../domain/usecases';
+import { CreateUser } from '../../../domain/usecases';
 import { Controller } from '../controller';
 
 export class CreateUserController implements Controller {

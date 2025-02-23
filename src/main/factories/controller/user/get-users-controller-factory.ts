@@ -1,4 +1,4 @@
-import { GetUsersController } from '../../../controller/user/get-users-controller';
+import { GetUsersController } from '../../../presentation/controller/user/get-users-controller';
 import { DbGetUsers } from '../../../data/usecases/user/db-get-users';
 import { UserRepository } from '../../../../infra/db/client';
 

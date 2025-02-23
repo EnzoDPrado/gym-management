@@ -1,5 +1,5 @@
 import { UserRepository } from '../../../../infra/db/client';
-import { DeleteUserByIdController } from '../../../controller/user/delete-user-by-id-controller';
+import { DeleteUserByIdController } from '../../../presentation/controller/user/delete-user-by-id-controller';
 import { DbDeleteUserById } from '../../../data/usecases';
 
 export const deleteUserByIdControllerFactory = () => {
