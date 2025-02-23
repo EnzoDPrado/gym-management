@@ -8,7 +8,7 @@ export class GetUsersController implements Controller {
     try {
       const users = await this.getUsers.get();
 
-      res.status(201).json({ users });
+      res.status(200).json({ users });
     } catch (error) {
       res.status(500).json(error);
     }

@@ -8,13 +8,13 @@ export class CreateUserController implements Controller {
     try {
       const { name, age, plan_id } = req.body;
 
-      const userId = await this.createUser.create({
+      const {user_id} = await this.createUser.create({
         name,
         age,
         planId: plan_id,
       });
 
-      res.status(201).json({ userId });
+      res.status(201).json({ user_id });
     } catch (error) {
       res.status(500).json(error);
     }

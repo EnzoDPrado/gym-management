@@ -5,5 +5,5 @@ export interface CreateUser {
 export namespace CreateUser {
   export type Params = { name: string; age: number; planId: number };
 
-  export type Result = Promise<{ userId: number }>;
+  export type Result = Promise<{ user_id: number }>;
 }

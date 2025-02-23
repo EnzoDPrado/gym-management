@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import allRoutes from './routes';
+import allRoutes from '../../../routes/routes';
 import { ENV } from '../../../util/environment';
 
 const { SERVER } = ENV;

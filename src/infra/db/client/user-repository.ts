@@ -26,10 +26,10 @@ export class UserRepository
     planId,
     name,
   }: CreateUserRepository.Params): CreateUserRepository.Result {
-    const record = (await this.knex('client.tb_user')
+    const record = await this.knex('client.tb_user')
       .insert({ age, name, plan_id: planId })
-      .returning('user_id')) as any;
+      .returning('user_id')
 
-    return record;
+    return record[0];
   }
 }
