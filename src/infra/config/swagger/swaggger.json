@@ -64,7 +64,7 @@
               "examples": {
                 "user": {
                   "value": {
-                    "mail": "juan@gmail.com",
+                    "email": "juan@gmail.com",
                     "password": "juan123"
                   }
                 }
@@ -74,7 +74,7 @@
         },
         "responses": {
           "500": {
-            "description": "Internal server error!"
+            "description": "Fail on authentication"
           },
           "200": {
             "content": {
@@ -100,15 +100,9 @@
         "tags": [
           "User"
         ],
-        "parameters": [
+        "security": [
           {
-            "name": "Authorization",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Authorization",
-              "description": "Bearer token"
-            }
+            "BearerAuth": []
           }
         ],
         "requestBody": {
@@ -142,15 +136,9 @@
         "tags": [
           "User"
         ],
-        "parameters": [
+        "security": [
           {
-            "name": "Authorization",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Authorization",
-              "description": "Bearer token"
-            }
+            "BearerAuth": []
           }
         ],
         "responses": {
@@ -174,6 +162,13 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
     "schemas": {
       "User": {
         "type": "object",
@@ -182,6 +177,12 @@
             "type": "number"
           },
           "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "passaword": {
             "type": "string"
           },
           "age": {

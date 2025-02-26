@@ -1,11 +1,11 @@
 import { UserModel } from "../../models";
 
-export interface GetUserByMailAndPassword {
-  get(params: GetUserByMailAndPassword.Params): GetUserByMailAndPassword.Result;
+export interface GetUserByMail {
+  get(params: GetUserByMail.Params): GetUserByMail.Result;
 }
 
-export namespace GetUserByMailAndPassword {
-  export type Params = { mail: string, password: string };
+export namespace GetUserByMail {
+  export type Params = { email: string };
 
   export type Result = Promise<UserModel | null>;
 }

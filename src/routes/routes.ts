@@ -9,6 +9,6 @@ router.use('/user', userRoutes);
 
 router.use('/documentation', documentationRoutes);
 
-router.use('/auth', authRoutes);
+router.use('/authentication', authRoutes);
 
 export default router;

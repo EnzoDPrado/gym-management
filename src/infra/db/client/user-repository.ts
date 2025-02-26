@@ -1,7 +1,7 @@
 import {
   CreateUserRepository,
   DeleteUserByIdRepository,
-  GetUserByMailAndPasswordRepository,
+  GetUserByMailRepository,
   GetUsersRepository,
 } from '../../../main/data/protocols';
 import { Repository } from '../repository';
@@ -12,10 +12,10 @@ export class UserRepository
   CreateUserRepository,
   GetUsersRepository,
   DeleteUserByIdRepository,
-  GetUserByMailAndPasswordRepository
+  GetUserByMailRepository
 {
-  async getByMailAndPassword({mail, password}: GetUserByMailAndPasswordRepository.Params): GetUserByMailAndPasswordRepository.Result {
-    const record = await this.knex('client.tb_user').select('*').where('email', mail).andWhere('password', password)
+  async getByMail({email}: GetUserByMailRepository.Params): GetUserByMailRepository.Result {
+    const record = await this.knex('client.tb_user').select('*').where('email', email)
 
     return record[0];
   }

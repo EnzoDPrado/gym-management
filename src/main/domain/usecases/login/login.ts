@@ -5,7 +5,7 @@ export interface Login {
 }
 
 export namespace Login {
-  export type Params = { mail: string, password: string };
+  export type Params = { email: string, password: string };
 
   export type Result = Promise<string>;
 
