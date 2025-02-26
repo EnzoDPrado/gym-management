@@ -12,7 +12,7 @@ router.get(
   '/all',
   authMiddleware,
   async (req, res) => 
-  await getUsersControllerFactory().handler({ req, res })
+  await getUsersControllerFactory().handler(req, res)
 );
 
 router.delete(
@@ -20,7 +20,7 @@ router.delete(
   authMiddleware,
   validationMiddleware(deleteUserSchema),
   async (req, res) => 
-  await deleteUserByIdControllerFactory().handler({ req, res })
+  await deleteUserByIdControllerFactory().handler(req, res)
 );
 
 export default router;

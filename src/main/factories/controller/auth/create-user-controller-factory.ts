@@ -1,4 +1,4 @@
-import { CreateUserController } from '../../../presentation/controller/user/create-user-controller';
+import { CreateUserController } from '../../../presentation/controller/auth/create-user-controller';
 import { DbCreateUser } from '../../../data/usecases/user/db-create-user';
 import { UserRepository } from '../../../../infra/db/client';
 
