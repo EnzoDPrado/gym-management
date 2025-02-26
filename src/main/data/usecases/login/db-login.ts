@@ -7,11 +7,11 @@ export class DbLogin implements Login{
     private readonly getUserByMailAndPassword: GetUserByMailAndPassword
   ){}
   async auth(params: Login.Params): Login.Result {
-    const user = await this.getUserByMailAndPassword.get(params)
+    const user = await this.getUserByMailAndPassword.get({mail: params.mail, password: params.password});
 
-    if(!user) throw new Error(Login.Exceptions.USER_NOT_FOUND)
+    if(!user) throw new Error(Login.Exceptions.USER_NOT_FOUND);
     
-    const token = generateToken({user})
+    const token = generateToken({user});
 
     return token;
   }

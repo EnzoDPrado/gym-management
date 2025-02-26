@@ -6,11 +6,13 @@ export class CreateUserController implements Controller {
 
   async handler({ req, res }: Controller.params): Controller.result {
     try {
-      const { name, age, plan_id } = req.body;
+      const { name, age, plan_id, email, password } = req.body;
 
       const {user_id} = await this.createUser.create({
         name,
         age,
+        email,
+        password,
         planId: plan_id,
       });
 

@@ -6,23 +6,22 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/user": {
+    "/api/v1/authentication/register": {
       "post": {
         "summary": "User register",
         "description": "This route will register an new user",
         "tags": [
-          "User"
+          "Authentication"
         ],
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              },
               "examples": {
                 "user": {
                   "value": {
                     "name": "Arnaldo de Souza",
+                    "email": "Arnaldao@gmail.com",
+                    "password": "arnaldo123123",
                     "age": 29,
                     "plan_id": 1
                   }
@@ -50,12 +49,67 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/v1/authentication/login": {
+      "post": {
+        "summary": "User login",
+        "description": "This route will make the login and return the JWT",
+        "tags": [
+          "Authentication"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "examples": {
+                "user": {
+                  "value": {
+                    "mail": "juan@gmail.com",
+                    "password": "juan123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal server error!"
+          },
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user": {
       "delete": {
         "summary": "Delete user",
         "description": "This route will delete an unique user by user id",
         "tags": [
           "User"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Authorization",
+              "description": "Bearer token"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -81,12 +135,23 @@
         }
       }
     },
-    "/user/all": {
+    "/api/v1/user/all": {
       "get": {
         "summary": "Get all users",
         "description": "This route will get all users",
         "tags": [
           "User"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Authorization",
+              "description": "Bearer token"
+            }
+          }
         ],
         "responses": {
           "200": {

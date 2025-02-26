@@ -8,7 +8,11 @@ import { Repository } from '../repository';
 
 export class UserRepository
   extends Repository
-  implements CreateUserRepository, GetUsersRepository, DeleteUserByIdRepository, GetUserByMailAndPasswordRepository
+  implements 
+  CreateUserRepository,
+  GetUsersRepository,
+  DeleteUserByIdRepository,
+  GetUserByMailAndPasswordRepository
 {
   async getByMailAndPassword({mail, password}: GetUserByMailAndPasswordRepository.Params): GetUserByMailAndPasswordRepository.Result {
     const record = await this.knex('client.tb_user').select('*').where('email', mail).andWhere('password', password)
@@ -31,9 +35,11 @@ export class UserRepository
     age,
     planId,
     name,
+    email,
+    password
   }: CreateUserRepository.Params): CreateUserRepository.Result {
     const record = await this.knex('client.tb_user')
-      .insert({ age, name, plan_id: planId })
+      .insert({ age, name, plan_id: planId, email, password })
       .returning('user_id')
 
     return record[0];
