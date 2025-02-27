@@ -2,10 +2,10 @@
   "name": "gym-management",
   "version": "1.0.0",
   "type": "commonjs",
-  "main": "dist/server.js",
+  "main": "server.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "ts-node src/server.ts",
     "dev": "nodemon --ext ts --exec ts-node src/server.ts"
   },
   "dependencies": {
