@@ -2,47 +2,104 @@
 
 API desenvolvida com **Node.js**, **TypeScript**, **Express** e **Zod**, seguindo princípios **SOLID** e **Clean Architecture**.
 
+
+## 📌 API Endpoints Overview
+
+- http://gym-management-iota-sandy.vercel.app/api/v1
+
+| Endpoint                              | Method | Description                           | Auth Required |
+|----------------------------------------|--------|---------------------------------------|--------------|
+| `/authentication/register`      | POST   | Register a new user                   | ❌           |
+| `/authentication/login`         | POST   | Login and get JWT                     | ❌           |
+| `/user`                         | DELETE | Delete a user by ID                    | ✅           |
+| `/user/all`                      | GET    | Retrieve all users                     | ✅           |
+
+
+## Autenticação
+
+### POST /authentication/register
+- **Resumo**: Registra um novo usuário.
+- **Descrição**: Esta rota cria um novo usuário no sistema.
+- **Tags**: [Authentication]
+
+#### Body (application/json)
+```json
+{
+  "name": "string",
+  "email": "string",
+  "password": "string",
+  "age": 0,
+  "plan_id": 0
+}
+```
+
+
+#### Response (application/json)
+```json
+{
+  "user_id": 0
+}
+```
 ---
+### POST /authentication/login
+- **Resumo**: Login de usuário.
+- **Descrição**: Esta rota realiza um login de usuário e retorna o token JWT.
+- **Tags**: [Authentication]
 
-## 📦 Instalação
-
-1. Clone o repositório:
-   ```sh
-   git clone https://github.com/seu-usuario/gym-management.git
-   cd gym-management
-
-
-## ⚙️  Configuração do Banco de Dados
-
-2. Configure o arquivo de env:
-   ```env
-    BASE_URL=/api/v1
-
-    DB_HOST=localhost
-    DB_PORT=5432
-    DB_USER=postgres
-    DB_PASSWORD=senha123
-    DB_NAME=gym_management
-    JWT_SECRET=SECRET_JWT
-   ```
-
-## 🔥  Rode o projeto
-
-3.1. Intale as dependências:
-   ```
-    yarn install
-   ```
-
-3.2. Rode o projeto:
-   ```
-    yarn start
-   ```
-
-## 🪶  Abra a documentação
-
-1. No seu navegador digite localhost:{porta_base_definida}/documentation/get
-
-## Agora só utilizar👌
+#### Body (application/json)
+```json
+{
+  "name": "string",
+  "email": "string",
+  "password": "string",
+  "age": 0,
+  "plan_id": 0
+}
+```
 
 
+#### Response (application/json)
+```json
+{
+  "token": "any_jwt_token"
+}
+```
+---
+### GET /user/all
+- **Resumo**: Listagem de usuários.
+- **Descrição**: Lista todos os usuários cadastrados no sistema.
+- **Tags**: [User]
 
+### Headers
+
+* **Authorization**: Bearer <SEU_TOKEN_JWT>
+
+#### Response (application/json)
+```json
+[
+  {
+    "user_id": 0,
+    "name": "string",
+    "email": "string",
+    "passaword": "string",
+    "age": 0,
+    "plan_id": 0
+  }
+]
+```
+---
+### DELETE /user/all
+- **Resumo**: Remover usuário.
+- **Descrição**: Remove um usuário da base de dados.
+- **Tags**: [User]
+
+### Headers
+
+* **Authorization**: Bearer <SEU_TOKEN_JWT>
+
+#### Body (application/json)
+```json
+{
+  "user_id": 0,
+}
+```
