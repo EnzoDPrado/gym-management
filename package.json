@@ -2,11 +2,11 @@
   "name": "gym-management",
   "version": "1.0.0",
   "type": "commonjs",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node src/index.ts",
-    "dev": "nodemon --ext ts --exec ts-node src/index.ts"
+    "start": "ts-node src/server.ts",
+    "dev": "nodemon --ext ts --exec ts-node src/server.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
