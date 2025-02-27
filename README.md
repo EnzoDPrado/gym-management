@@ -81,7 +81,7 @@ API desenvolvida com **Node.js**, **TypeScript**, **Express** e **Zod**, seguind
     "user_id": 0,
     "name": "string",
     "email": "string",
-    "passaword": "string",
+    "password": "string",
     "age": 0,
     "plan_id": 0
   }
