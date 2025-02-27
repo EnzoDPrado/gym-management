@@ -23,6 +23,7 @@ API desenvolvida com **Node.js**, **TypeScript**, **Express** e **Zod**, seguind
     DB_USER=postgres
     DB_PASSWORD=senha123
     DB_NAME=gym_management
+    JWT_SECRET=SECRET_JWT
    ```
 
 ## 🔥  Rode o projeto
