@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const validation_1 = require("../main/validation");
+const middleware_1 = require("../main/presentation/middleware");
+const controller_1 = require("../main/factories/controller");
+const router = (0, express_1.Router)();
+router.post('/login', (0, middleware_1.validationMiddleware)(validation_1.loginUserSchema), async (req, res) => await (0, controller_1.loginControllerFactory)().handler(req, res));
+router.post('/register', (0, middleware_1.validationMiddleware)(validation_1.registerUserSchema), async (req, res) => await (0, controller_1.createUserControllerFactory)().handler(req, res));
+exports.default = router;
