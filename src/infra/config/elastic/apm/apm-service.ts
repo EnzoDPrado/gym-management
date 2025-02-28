@@ -14,6 +14,7 @@ export class ApmService {
           serverUrl: OBSERVABILITY.APM_URL,
           secretToken: OBSERVABILITY.APM_TOKEN,
           environment: OBSERVABILITY.APM_ENVIRONMENT,
+          logLevel: 'trace',
         });
 
         ApmService.instance = newApmInstance;
