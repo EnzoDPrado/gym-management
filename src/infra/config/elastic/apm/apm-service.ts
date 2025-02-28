@@ -11,9 +11,9 @@ export class ApmService {
       if (!ApmService.instance) {
         const newApmInstance = elasticApm.start({
           serviceName: 'gym-management',
-          serverUrl: OBSERVABILITY.URL,
-          secretToken: OBSERVABILITY.TOKEN,
-          environment: OBSERVABILITY.ENVIRONMENT,
+          serverUrl: OBSERVABILITY.APM_URL,
+          secretToken: OBSERVABILITY.APM_TOKEN,
+          environment: OBSERVABILITY.APM_ENVIRONMENT,
         });
 
         ApmService.instance = newApmInstance;

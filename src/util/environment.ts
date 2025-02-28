@@ -21,8 +21,8 @@ export const ENV = {
   },
 
   OBSERVABILITY: {
-    URL: process.env.ELASTIC_URL || '',
-    TOKEN: process.env.ELASTIC_SECRET_TOKEN || '',
-    ENVIRONMENT: process.env.ELASTIC_ENVIRONMENT || ''
+    APM_URL: process.env.ELASTIC_APM_URL || '',
+    APM_TOKEN: process.env.ELASTIC_APM_SECRET_TOKEN || '',
+    APM_ENVIRONMENT: process.env.ELASTIC_APM_ENVIRONMENT || '',
   },
 };
