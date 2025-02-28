@@ -4,23 +4,27 @@ import {
   getUsersControllerFactory,
 } from '../main/factories/controller';
 import { deleteUserSchema } from '../main/validation/user';
-import { authMiddleware, validationMiddleware } from '../main/presentation/middleware';
+import {
+  apmMiddleware,
+  authMiddleware,
+  validationMiddleware,
+} from '../main/presentation/middleware';
 
 const router = Router();
 
 router.get(
   '/all',
   authMiddleware,
-  async (req, res) => 
-  await getUsersControllerFactory().handler(req, res)
+  apmMiddleware,
+  async (req, res) => await getUsersControllerFactory().handler(req, res)
 );
 
 router.delete(
-  '', 
+  '',
   authMiddleware,
+  apmMiddleware,
   validationMiddleware(deleteUserSchema),
-  async (req, res) => 
-  await deleteUserByIdControllerFactory().handler(req, res)
+  async (req, res) => await deleteUserByIdControllerFactory().handler(req, res)
 );
 
 export default router;
