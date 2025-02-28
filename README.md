@@ -88,7 +88,7 @@ API desenvolvida com **Node.js**, **TypeScript**, **Express** e **Zod**, seguind
 ]
 ```
 ---
-### DELETE /user/all
+### DELETE /user
 - **Resumo**: Remover usuário.
 - **Descrição**: Remove um usuário da base de dados.
 - **Tags**: [User]
