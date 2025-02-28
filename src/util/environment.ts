@@ -16,7 +16,13 @@ export const ENV = {
     BASE_URL: process.env.BASE_URL || '',
   },
 
-  JWT:{
-    SECRET: process.env.JWT_SECRET || ''
-  }
+  JWT: {
+    SECRET: process.env.JWT_SECRET || '',
+  },
+
+  OBSERVABILITY: {
+    URL: process.env.ELASTIC_URL || '',
+    TOKEN: process.env.ELASTIC_SECRET_TOKEN || '',
+    ENVIRONMENT: process.env.ELASTIC_ENVIRONMENT || ''
+  },
 };
