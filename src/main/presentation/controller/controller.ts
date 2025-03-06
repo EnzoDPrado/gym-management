@@ -1,9 +1,5 @@
-import { Request, Response } from 'express';
+import { HttpRequest, HttpResponse } from '../../domain/models';
 
 export interface Controller {
-  handler(request:Request, response: Response): Controller.result;
-}
-
-export namespace Controller {
-  export type result = Promise<void>;
+  handler(httpRequest: HttpRequest): Promise<HttpResponse>;
 }

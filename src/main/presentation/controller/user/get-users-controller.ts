@@ -1,17 +1,17 @@
-import { Request, Response } from 'express';
 import { GetUsers } from '../../../domain/usecases';
 import { Controller } from '../controller';
+import { HttpRequest, HttpResponse } from '../../../domain/models';
+import { caught, serverError } from '../../../../util/http-response';
 
 export class GetUsersController implements Controller {
   constructor(private readonly getUsers: GetUsers) {}
-
-  async handler(_request: Request, response: Response): Controller.result {
+  async handler(_httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const users = await this.getUsers.get();
 
-      response.status(200).json({ users });
+      return caught({ users });
     } catch (error) {
-      response.status(500).json(error);
+      return serverError(error);
     }
   }
 }

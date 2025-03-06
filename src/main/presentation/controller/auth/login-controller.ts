@@ -1,22 +1,22 @@
-import { Request, Response } from "express";
 import { Login } from "../../../domain/usecases/login/login";
 import { Controller } from "../controller";
+import { HttpRequest, HttpResponse } from "../../../domain/models";
+import { badRequest, created } from "../../../../util/http-response";
 
 export class LoginController implements Controller{
   constructor(
     private readonly login: Login
   ){}
-  async handler(request: Request, response: Response): Controller.result {
+  async handler(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const email = request.body.email;
-      const password = request.body.password;
+      const email = httpRequest.body.email;
+      const password = httpRequest.body.password;
 
       const token = await this.login.auth({email, password})
 
-      response.status(200).json({token})
-
+      return created({token})
     } catch (error) {
-      response.status(500).json({message: "Fail on authentication"})
+      return badRequest({message: "Fail on authentication"})
     }
   }
 }
