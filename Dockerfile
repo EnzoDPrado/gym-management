@@ -2,14 +2,14 @@ FROM node:18
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY . .
 
 RUN yarn install 
 
 RUN yarn global add ts-node typescript
 
-COPY . .
+ARG PORT=3000
 
-EXPOSE 3000
+EXPOSE $PORT
 
-CMD ["yarn", "start"] 
+ENTRYPOINT yarn start 
