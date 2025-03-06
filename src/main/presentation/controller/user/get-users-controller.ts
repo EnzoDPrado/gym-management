@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { GetUsers } from '../../../domain/usecases';
 import { Controller } from '../controller';
+import { logger } from 'elastic-apm-node';
 
 export class GetUsersController implements Controller {
   constructor(private readonly getUsers: GetUsers) {}
@@ -11,7 +12,8 @@ export class GetUsersController implements Controller {
 
       response.status(200).json({ users });
     } catch (error) {
-      response.status(500).json(error);
+      logger.error('Error')
+      response.status(500).json({ error });
     }
   }
 }

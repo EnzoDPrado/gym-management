@@ -24,5 +24,8 @@ export const ENV = {
     APM_URL: process.env.ELASTIC_APM_URL || '',
     APM_TOKEN: process.env.ELASTIC_APM_SECRET_TOKEN || '',
     APM_ENVIRONMENT: process.env.ELASTIC_APM_ENVIRONMENT || '',
+    ELASTIC_HOST: process.env.ELASTIC_HOST || '',
+    ELASTIC_PASSWORD: process.env.ELASTIC_PASSWORD || '',
+    ELASTIC_USER: process.env.ELASTIC_USER || ''
   },
 };

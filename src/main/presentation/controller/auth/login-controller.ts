@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Login } from "../../../domain/usecases/login/login";
 import { Controller } from "../controller";
+import { logger } from "../../../../util/logger";
 
 export class LoginController implements Controller{
   constructor(
@@ -16,6 +17,7 @@ export class LoginController implements Controller{
       response.status(200).json({token})
 
     } catch (error) {
+      logger.error('Error')
       response.status(500).json({message: "Fail on authentication"})
     }
   }

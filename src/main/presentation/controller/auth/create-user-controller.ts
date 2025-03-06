@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { CreateUser } from '../../../domain/usecases';
 import { Controller } from '../controller';
+import { logger } from '../../../../util/logger';
 
 export class CreateUserController implements Controller {
   constructor(private readonly createUser: CreateUser) {}
@@ -19,7 +20,8 @@ export class CreateUserController implements Controller {
 
       response.status(201).json({ user_id });
     } catch (error) {
-      response.status(500).json(error);
+      logger.error('Error')
+      response.status(500).json({ error });
     }
   }
 }

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { DeleteUserById } from '../../../domain/usecases';
 import { Controller } from '../controller';
+import { logger } from '../../../../util/logger';
 
 export class DeleteUserByIdController implements Controller {
   constructor(private readonly deleteUserById: DeleteUserById) {}
@@ -13,6 +14,7 @@ export class DeleteUserByIdController implements Controller {
 
       response.status(200).json({ status: 'Usuário deletado com sucesso!' });
     } catch (error) {
+      logger.error('Error')
       response.status(500).json({ error });
     }
   }

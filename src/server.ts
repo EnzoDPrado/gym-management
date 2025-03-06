@@ -1,5 +1,6 @@
 import { apmServiceFactory } from './infra/config/elastic/apm/apm-service-factory';
 apmServiceFactory();
+
 import { expressServerFactory } from './infra/config/express/express-server-factory';
 import { ENV } from './util/environment';
 
